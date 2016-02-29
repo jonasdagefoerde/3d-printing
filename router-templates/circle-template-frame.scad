@@ -4,8 +4,8 @@ model_resolution = 50;
 
 
 circle_template_frame(
-    inlay_size = 60,
-    frame_width = 40,
+    inlay_size = 140,
+    frame_width = 15,
     guide_height = 8,
     resolution = model_resolution);
 
@@ -17,15 +17,16 @@ module circle_template_frame(
   frame_width,  // the frame's width required for the guide template
   guide_height,  // the template guide's height
   resolution = model_resolution) {
+    frame_len = inlay_size+2*frame_width;
     linear_extrude(height=guide_height) {
         difference() {
             union() {
-                square(inlay_size+frame_width, center=true);
+                square(frame_len, center=true);
                 rotate([0,0,45]) {
-                    square([inlay_size+3*frame_width, frame_width/2], center=true);  
+                    square([sqrt(2)*frame_len+frame_width, frame_width], center=true);  
                 }
                 rotate([0,0,-45]) {
-                    square([inlay_size+3*frame_width, frame_width/2], center=true);
+                    square([sqrt(2)*frame_len+frame_width, frame_width], center=true);
                 }
             }
             square(inlay_size, center=true);
