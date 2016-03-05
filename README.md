@@ -7,7 +7,6 @@ This repo includes all my 3d printing sources that are ready-to-use for other ma
 
 - A guide for [getting better prints](http://support.3dverkstan.se/article/30-getting-better-prints#reduce-acceleration)
 - Changing material using the [cold pull method](http://support.3dverkstan.se/article/10-the) to remove left-over material and dirt entirely - check out the lazy way at the bottom
-- How to [optimize Cura print settings](https://ultimaker.com/en/community/15403-cura-default-settings-needs-a-speed-tweak)
 - [A visual Ultimaker troubleshooting guide](http://support.3dverkstan.se/article/23-a-visual-ultimaker-troubleshooting-guide#bottomlayer)
 - [Print quality trouble shooting guide](https://www.simplify3d.com/support/print-quality-troubleshooting/)
 
