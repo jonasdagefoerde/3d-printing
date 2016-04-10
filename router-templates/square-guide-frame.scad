@@ -1,6 +1,7 @@
 
 // the model's resolution
 model_resolution = 50;
+print_comp = 0.2;  // compensation for (unwanted) additional material being extruded bei 3d printer
 
 /*
 circle_guide_frame(
@@ -13,7 +14,7 @@ circle_guide_frame(
 circle_guide_frame(
     inlay_size = 30,
     frame_width = 5,
-    guide_height = 8,
+    guide_height = 5,
     resolution = model_resolution);
 
 
@@ -36,8 +37,8 @@ module circle_guide_frame(
                     square([sqrt(2)*frame_len+frame_width, frame_width], center=true);
                 }
             }
-            // increase the inlay size to adjust for expanding material
-            square(inlay_size+0.4, center=true);
+            // 2 sides = 2 * print_compensation
+            square(inlay_size+2*print_comp, center=true);
         }
     }
 }

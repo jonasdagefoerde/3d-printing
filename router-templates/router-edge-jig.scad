@@ -1,23 +1,34 @@
+// Global constants
+print_comp = 0.1;  // compensation for (unwanted) additional material being extruded bei 3d printer
+
 
 /*
-  x = direction of the sheet material
-  y = perpendicular to the long sheet edges
+  x = direction along the sheet material
+  y = perpendicular to the direction along sheet edge
 */
 
-print_comp = 0.2;  // compensation for (unwanted) additional material being extruded bei 3d printer
-max_dim_x = 60;  // max routing in direction of sheet
-max_dim_y = 40;  // max routing perpendicular to sheet direction
-frame_w = 50;  // width of support area
-min_cutter_dim = 6;  // smallest cutter to be taken into account
-max_cutter_len = 40;  // maximum cutter length sticking out of router chuck
-copyring_dia = 13.8;  // outer copying ring diameter
+/* jig for 30 mm thick sheet with an area that allows to mill through the entire sheet */
+router_jig_edge_basis(
+    sheet_width = 30,
+    max_dim_x = 60,
+    max_dim_y = 40,
+    min_cutter_dim = 6,
+    max_cutter_len = 40,
+    copyring_dia = 13.8);
 
 
-router_jig_edge_basis(sheet_width = 30);
-
-module router_jig_edge_basis(sheet_width) {
-    jig_h = 5;  // jig height (or strength)
+module router_jig_edge_basis(
+  sheet_width = 30,     // the width of the sheet to attach the jig to
+  max_dim_x = 60,       // max routing in direction of sheet
+  max_dim_y = 40,       // max routing perpendicular to sheet direction
+  min_cutter_dim = 6,   // smallest cutter to be taken into account
+  max_cutter_len = 40,  // maximum cutter length sticking out of router chuck
+  copyring_dia = 13.8,  // outer copying ring diameter
+  ) {
+    // fixed values derived from router dimensions and experience
+    jig_h = 5;     // jig height (or strength)
     guide_h = 50;  // height of guides to hold the jig
+    frame_w = 70;  // width of support area
     dia_to_add = copyring_dia-min_cutter_dim;
     outer_x = max_dim_x+dia_to_add+frame_w;
     outer_y = max_dim_y+dia_to_add+frame_w;

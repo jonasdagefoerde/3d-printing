@@ -3,8 +3,8 @@
 model_resolution = 50;
 
 square_inlay_basis(
-    size = 30,
-    guide_height = 4,
+    size = 30.26,
+    guide_height = 5,
     resolution = model_resolution);
 
 
@@ -16,7 +16,6 @@ module square_inlay_basis(
   resolution = model_resolution) {
     linear_extrude(height=guide_height) {
         difference() {
-            // reduce outer size due to material expansion of frame
             square(size, center=true);
             square(size-10, center=true);
         }
