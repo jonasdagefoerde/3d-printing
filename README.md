@@ -5,8 +5,10 @@ This repo includes all my 3d printing sources that are ready-to-use for other ma
 
 ## Sources for Printing with Ultimaker 2
 
+- A guide for [getting better prints](http://support.3dverkstan.se/article/30-getting-better-prints#reduce-acceleration)
 - Changing material using the [cold pull method](http://support.3dverkstan.se/article/10-the) to remove left-over material and dirt entirely - check out the lazy way at the bottom
 - [A visual Ultimaker troubleshooting guide](http://support.3dverkstan.se/article/23-a-visual-ultimaker-troubleshooting-guide#bottomlayer)
+- [Print quality trouble shooting guide](https://www.simplify3d.com/support/print-quality-troubleshooting/)
 
 
 ## Adjustable ball joint
