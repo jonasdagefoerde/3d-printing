@@ -30,9 +30,13 @@ module router_jig_edge_basis(
     guide_h = 50;  // height of guides to hold the jig
     frame_w = 70;  // width of support area
     dia_to_add = copyring_dia-min_cutter_dim;
-    outer_x = max_dim_x+dia_to_add+frame_w;
-    outer_y = max_dim_y+dia_to_add+frame_w;
-
+    inlay_x = ceil(max_dim_x+dia_to_add) + 2*print_comp;
+    inlay_y = ceil(max_dim_y+dia_to_add) + 2*print_comp;
+    echo("==============================");
+    echo(str("Inlay dimensions: ", inlay_x-2*print_comp, " x ", inlay_y-2*print_comp));
+    echo("==============================");
+    outer_x = inlay_x+frame_w;
+    outer_y = inlay_y+frame_w;
     difference() {
         union() {
             cube([outer_x, outer_y, jig_h], center=true);
@@ -43,7 +47,7 @@ module router_jig_edge_basis(
             translate([outer_x/2, -(sheet_width/2+jig_h), jig_h/2]) rotate([0, -90, 0])
                 linear_extrude(height=outer_x) polygon(points = [[0, 0], [10, 0], [0, -10]]);
         }
-        cube([max_dim_x+dia_to_add+print_comp, max_dim_y+dia_to_add+print_comp, jig_h], center=true);
+        cube([inlay_x, inlay_y, jig_h], center=true);
         translate([0, 0, max_cutter_len/2]) cube([max_dim_x, outer_y, max_cutter_len-jig_h], center=true);
     }
 }
