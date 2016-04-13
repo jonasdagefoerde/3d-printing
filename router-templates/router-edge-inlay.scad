@@ -1,5 +1,7 @@
 // Global constants
 print_comp = 0.1;  // compensation for (unwanted) additional material being extruded bei 3d printer
+// the model's resolution
+model_resolution = 50;
 
 
 /*
@@ -8,11 +10,6 @@ print_comp = 0.1;  // compensation for (unwanted) additional material being extr
 */
 
 /* The first printed edge jig did not include ceil() to not frame dimensions */
-router_jig_inlay_circle(
-    inlay_x = 67.9 - 2*print_comp,
-    inlay_y = 47.9 - 2*print_comp,
-    circle_dia = 18);
-
 router_jig_inlay_circle(
     inlay_x = 67.9 - 2*print_comp,
     inlay_y = 47.9 - 2*print_comp,
@@ -32,7 +29,7 @@ module router_jig_inlay_circle(
     jig_h = 5;  // jig height (or strength)
     difference() {
         cube([inlay_x, inlay_y, jig_h], center=true);
-        cylinder(h=2*jig_h, d=circle_dia+2*print_comp, center=true);
+        cylinder(h=2*jig_h, d=circle_dia+2*print_comp, center=true, $fn=model_resolution);
     }
 }
 
