@@ -9,14 +9,11 @@ model_resolution = 50;
   y = perpendicular to the direction along sheet edge
 */
 
-/* The first printed edge jig did not include ceil() to not frame dimensions */
+/* The first printed edge jig did not include ceil() to round frame dimensions */
 router_jig_inlay_circle(
     inlay_x = 67.9 - 2*print_comp,
     inlay_y = 47.9 - 2*print_comp,
     circle_dia = 18);
-
-
-/* The first printed edge jig did not include rounded inlay frame dimensions */
 
 
 /* Inlay for the router edge jig that will allow to mill a circle into an edge */
